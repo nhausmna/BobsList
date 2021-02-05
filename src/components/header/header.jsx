@@ -103,11 +103,11 @@ const Header = () => {
                     <Nav className="ml-auto float-right" navbar>
                         <NavItem>
                             <a
-                                href="https://wrappixel.com/templates/materialpro-react-admin/"
+                                href="https://github.com/nhausmna/BobsList/tree/frontend"
                                 className="btn btn-danger mr-2"
                                 style={{ marginTop: '20px' }}
                             >
-                                Upgrade to Pro
+                                View the Source
                 </a>
                         </NavItem>
                         {/*--------------------------------------------------------------------------------*/}
