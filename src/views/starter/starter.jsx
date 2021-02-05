@@ -1,29 +1,87 @@
 import React from 'react';
 import {
+    Card,
+    CardImg,
+    CardImgOverlay,
+    CardText,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    CardColumns,
+    CardGroup,
+    CardDeck,
+    CardLink,
+    CardHeader,
+    CardFooter,
+    Button,
     Row,
     Col
 } from 'reactstrap';
-import { SalesSummary, Projects, Feeds, SocialCards } from '../../components/dashboard-components';
 
-const Starter = () => {
+
+import img1 from '../../assets/images/big/img1.jpg';
+import img2 from '../../assets/images/big/img2.jpg';
+import img3 from '../../assets/images/big/img3.jpg';
+import img4 from '../../assets/images/big/img4.jpg';
+import img5 from '../../assets/images/big/img5.jpg';
+import img6 from '../../assets/images/big/img6.jpg';
+import img7 from '../../assets/images/background/img5.jpg';
+
+const Cards = () => {
     return (
         <div>
+            {/* --------------------------------------------------------------------------------*/}
+            {/* Row*/}
+            {/* --------------------------------------------------------------------------------*/}
+            <h5 className="mb-3">Listings</h5>
             <Row>
-                <Col sm={6} lg={8}>
-                    <SalesSummary />
+                <Col xs="12" md="4">
+                    {/* --------------------------------------------------------------------------------*/}
+                    {/* Card-1*/}
+                    {/* --------------------------------------------------------------------------------*/}
+                    <Card>
+                        <CardImg top width="100%" src={img1} />
+                        <CardBody>
+                            <CardTitle>Card title</CardTitle>
+                            <CardSubtitle>Card subtitle</CardSubtitle>
+                            <CardText>Some quick example text to build on the card title and make up the bulk of the cards content.</CardText>
+                            <Button>Button</Button>
+                        </CardBody>
+                    </Card>
                 </Col>
-                <Col sm={6} lg={4}>
-                    <Feeds />
+                <Col xs="12" md="4">
+                    {/* --------------------------------------------------------------------------------*/}
+                    {/* Card-1*/}
+                    {/* --------------------------------------------------------------------------------*/}
+                    <Card>
+                        <CardImg top width="100%" src={img2} />
+                        <CardBody>
+                            <CardTitle>Card title</CardTitle>
+                            <CardSubtitle>Card subtitle</CardSubtitle>
+                            <CardText>Some quick example text to build on the card title and make up the bulk of the cards content.</CardText>
+                            <Button>Button</Button>
+                        </CardBody>
+                    </Card>
+                </Col>
+                <Col xs="12" md="4">
+                    {/* --------------------------------------------------------------------------------*/}
+                    {/* Card-1*/}
+                    {/* --------------------------------------------------------------------------------*/}
+                    <Card>
+                        <CardImg top width="100%" src={img3} />
+                        <CardBody>
+                            <CardTitle>Card title</CardTitle>
+                            <CardSubtitle>Card subtitle</CardSubtitle>
+                            <CardText>Some quick example text to build on the card title and make up the bulk of the cards content.</CardText>
+                            <Button>Button</Button>
+                        </CardBody>
+                    </Card>
                 </Col>
             </Row>
-            <Row>
-                <Col sm={12}>
-                    <Projects />
-                </Col>
-            </Row>
-            <SocialCards />
         </div>
     );
 }
 
-export default Starter;
+export default Cards;
+
+
