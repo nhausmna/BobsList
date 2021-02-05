@@ -10826,8 +10826,9 @@ a.text-inverse:focus {
 
 .card .card-subtitle {
     font-weight: 300;
+    font-size: x-large;
     margin-bottom: 10px;
-    color: #8898aa;
+    color: #065717;
 }
 
 .card .card-title {
