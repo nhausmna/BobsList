@@ -27,7 +27,25 @@ import img5 from '../../assets/images/big/img5.jpg';
 import img6 from '../../assets/images/big/img6.jpg';
 import img7 from '../../assets/images/background/img5.jpg';
 
+const OneCard = () => {
+    return(
+        <Col xs="12" md="4">
+        <Card>
+            <CardImg top width="100%" src={img4} />
+            <CardBody>
+                <CardTitle>Example Product</CardTitle>
+                <CardSubtitle>$999</CardSubtitle>
+                <CardText>This is where the description will go</CardText>
+                <Button>Contact Seller</Button>
+            </CardBody>
+        </Card>
+    </Col>
+    )
+}
+
 const Cards = () => {
+    const cards = [<OneCard />, <OneCard />, <OneCard />, <OneCard />, <OneCard />, <OneCard />, <OneCard />, <OneCard />, <OneCard />]
+
     return (
         <div>
             {/* --------------------------------------------------------------------------------*/}
@@ -35,53 +53,10 @@ const Cards = () => {
             {/* --------------------------------------------------------------------------------*/}
             <h5 className="mb-3">Listings</h5>
             <Row>
-                <Col xs="12" md="4">
-                    {/* --------------------------------------------------------------------------------*/}
-                    {/* Card-1*/}
-                    {/* --------------------------------------------------------------------------------*/}
-                    <Card>
-                        <CardImg top width="100%" src={img1} />
-                        <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the cards content.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                </Col>
-                <Col xs="12" md="4">
-                    {/* --------------------------------------------------------------------------------*/}
-                    {/* Card-1*/}
-                    {/* --------------------------------------------------------------------------------*/}
-                    <Card>
-                        <CardImg top width="100%" src={img2} />
-                        <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the cards content.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                </Col>
-                <Col xs="12" md="4">
-                    {/* --------------------------------------------------------------------------------*/}
-                    {/* Card-1*/}
-                    {/* --------------------------------------------------------------------------------*/}
-                    <Card>
-                        <CardImg top width="100%" src={img3} />
-                        <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the cards content.</CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                </Col>
+                {cards}
             </Row>
         </div>
     );
 }
 
 export default Cards;
-
-
