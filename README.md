@@ -15,4 +15,5 @@ for styling.
 
 This styling is configured for the VSCode IDE using these guides:
 Prettier: https://medium.com/how-to-react/config-eslint-and-prettier-in-visual-studio-code-for-react-js-development-97bb2236b31a
+
 Pycodestyle: https://code.visualstudio.com/docs/python/linting
