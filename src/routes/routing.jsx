@@ -16,7 +16,7 @@ import TooltipComponent from '../views/ui-components/tooltip.jsx';
 
 var ThemeRoutes = [
   {
-    path: '/starter/starter',
+    path: '/home',
     name: 'Dashboard',
     icon: 'mdi mdi-adjust',
     component: FirstDashboard
@@ -54,27 +54,24 @@ var ThemeRoutes = [
   {
     path: '/ui-components/pagination',
     name: 'Pagination',
-
     icon: 'mdi mdi-priority-high',
     component: PaginationComponent
   },
   {
     path: '/ui-components/popover',
     name: 'Popover',
-
     icon: 'mdi mdi-pencil-circle',
     component: PopoverComponent
   },
   {
     path: '/ui-components/tooltip',
     name: 'Toltips',
-
     icon: 'mdi mdi-image-filter-vintage',
     component: TooltipComponent
   },
   {
     path: '/',
-    pathTo: '/starter/starter',
+    pathTo: '/home',
     name: 'Dashboard',
     redirect: true
   }
