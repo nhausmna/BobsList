@@ -1,7 +1,7 @@
 {
-    "name": "materialpro-react-admin",
+    "name": "bobs_list",
     "version": "0.1.0",
-    "homepage": "http://wrappixel.com/demos/free-admin-templates/materialpro-reactadmin-lite/main/",
+    "homepage": "http://localhost:3000",
     "private": true,
     "dependencies": {
         "bootstrap": "4.1.3",
