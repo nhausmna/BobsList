@@ -29,8 +29,8 @@ import img7 from '../../assets/images/background/img5.jpg';
 
 const Cards = props => {
     const cards = [
-        <OneCard title="EXAMPLE PRODUCT" price="$34" description="this will be a desc" image={img3}/>,
-        <OneCard title="EXAMPLE PRODUCT 2" price="$3431" description="this will be a desc 2" image={img7}/>
+        <OneCard title="EXAMPLE PRODUCT" price="34" description="this will be a desc" image={img3} timeAgo="2 minutes ago" location="LA"/>,
+        <OneCard title="EXAMPLE PRODUCT 2" price="3431" description="this will be a desc 2" image={img7} timeAgo="4 hours ago" location="SLO"/>
     ]
 
     return (
@@ -44,17 +44,20 @@ const Cards = props => {
 }
 
 const OneCard = data => {
+    var string = "this\n\n\n\n\n is a multi\ line\ string"; 
     return(
         <Col xs="12" md="4">
         <Card>
             <CardImg top width="100%" src={data.image} />
             <CardBody>
                 <CardTitle>{data.title}</CardTitle>
-                <CardSubtitle>{data.price}</CardSubtitle>
+                <CardSubtitle>${data.price}</CardSubtitle>
                 <CardText>{data.description}</CardText>
                 <Button className="btn" color="info" size="md" href="#/contact_seller" active>
                                     Contact Seller
                   </Button>
+                <CardText></CardText>
+                <CardText>{data.timeAgo} in {data.location}</CardText>
             </CardBody>
         </Card>
     </Col>
