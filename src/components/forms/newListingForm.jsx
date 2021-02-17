@@ -103,11 +103,11 @@ class NewListingForm extends Component{
         </form>
         <p></p>
             
-        <Button className="btn" color="primary" size="lg" onChange={this.handleSubmit}>
+        <Button className="btn" color="primary" size="lg" onChange={this.handleSubmit} href="/" >
                     Submit
         </Button>
         <container> </container>
-        <Button className="btn" color="secondary" size="lg">
+        <Button className="btn" color="secondary" size="lg" href="/" >
                     Cancel
         </Button>
             </CardBody>

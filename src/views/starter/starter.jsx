@@ -36,7 +36,9 @@ const OneCard = () => {
                 <CardTitle>Example Product</CardTitle>
                 <CardSubtitle>$999</CardSubtitle>
                 <CardText>This is where the description will go</CardText>
-                <Button>Contact Seller</Button>
+                <Button className="btn" color="info" size="md" href="#/contact_seller" active>
+                                    Contact Seller
+                  </Button>
             </CardBody>
         </Card>
     </Col>
