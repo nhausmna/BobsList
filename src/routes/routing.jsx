@@ -5,7 +5,7 @@ import FirstDashboard from '../views/starter/starter.jsx';
 /*--------------------------------------------------------------------------------*/
 /*                           Ui-components Dropdown                               */
 /*--------------------------------------------------------------------------------*/
-import Alerts from '../views/ui-components/alert.jsx';
+import Alert from '../views/ui-components/alert.jsx';
 import Badges from '../views/ui-components/badge.jsx';
 import Buttons from '../views/ui-components/button.jsx';
 import Cards from '../views/ui-components/cards.jsx';
@@ -13,19 +13,33 @@ import LayoutComponent from '../views/ui-components/layout.jsx';
 import PaginationComponent from '../views/ui-components/pagination.jsx';
 import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
+import NewListingForm from '../components/forms/newListingForm.jsx';
+import ContactForm from '../components/forms/contactForm.jsx';
 
 var ThemeRoutes = [
   {
-    path: '/starter/starter',
+    path: '/home',
     name: 'Dashboard',
     icon: 'mdi mdi-adjust',
     component: FirstDashboard
   },
   {
+    path: '/new_listing',
+    name: 'New Listing',
+    icon: 'mdi mdi-pencil-circle',
+    component: NewListingForm
+  },
+  {
+    path: '/contact_seller',
+    name: 'Contact Seller',
+    icon: 'mdi mdi-comment-processing-outline',
+    component: ContactForm
+  },
+  {
     path: '/ui-components/alert',
     name: 'Alerts',
     icon: 'mdi mdi-comment-processing-outline',
-    component: Alerts
+    component: Alert
   },
   {
     path: '/ui-components/badge',
@@ -54,27 +68,24 @@ var ThemeRoutes = [
   {
     path: '/ui-components/pagination',
     name: 'Pagination',
-
     icon: 'mdi mdi-priority-high',
     component: PaginationComponent
   },
   {
     path: '/ui-components/popover',
     name: 'Popover',
-
     icon: 'mdi mdi-pencil-circle',
     component: PopoverComponent
   },
   {
     path: '/ui-components/tooltip',
     name: 'Toltips',
-
     icon: 'mdi mdi-image-filter-vintage',
     component: TooltipComponent
   },
   {
     path: '/',
-    pathTo: '/starter/starter',
+    pathTo: '/home',
     name: 'Dashboard',
     redirect: true
   }
