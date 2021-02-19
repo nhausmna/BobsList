@@ -1,0 +1,21 @@
+jobs:
+  include:
+    - language: python
+      python:   
+      - "3.6" # Current default Python on Travis CI
+      - "3.9" # Current version that Jaxon is running
+
+      # command to install dependencies
+      install:
+      - pip install -r requirements.txt
+      script:
+      - python -c "print('Hello World!')"
+
+    # There is more to be written for this, this is an incomplete framework
+    - language: node_js
+      node_js:
+      - "12" # Mentioned in the docs
+      - "15" # Current version that Jaxon is running
+      script:
+      - node -e "console.log('Hello World!')"
+
