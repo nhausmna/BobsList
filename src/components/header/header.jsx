@@ -101,6 +101,15 @@ const Header = () => {
                         {/*--------------------------------------------------------------------------------*/}
                     </Nav>
                     <Nav className="ml-auto float-right" navbar>
+                    <NavItem>
+                            <a
+                                href="/#/new_listing"
+                                className="btn btn-warning mr-2"
+                                style={{ marginTop: '20px' }}
+                            >
+                                List an item
+                </a>
+                        </NavItem>
                         <NavItem>
                             <a
                                 href="https://github.com/nhausmna/BobsList/tree/frontend"
