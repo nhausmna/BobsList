@@ -4,7 +4,7 @@
 * [General Info](#general-info)
 * [Frontend](#frontend)
 * [Backend](#backend)
-* [Code Styling](#codestyling)
+* [Code Styling](#code-styling)
 
 ## General Info
 This is a CSC 307 Project in developing a "selling stuff" application. We are
