@@ -24,6 +24,10 @@ https://www.wrappixel.com/templates/materialpro-react-admin-lite/
 
 ## Backend
 To run the backend... Edwin write some directions here
+```
+$ cd BobsList\ Backend
+$ python3 
+```
 
 
 ## Code Styling
