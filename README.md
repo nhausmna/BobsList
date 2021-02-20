@@ -1,4 +1,5 @@
 # BobsList
+[![Build Status](http://img.shields.io/travis/nhausman/BobsList.svg?style=flat-square)](https://travis-ci.org/badges/BobsList)
 
 ## Table of contents
 * [General Info](#general-info)
@@ -19,8 +20,9 @@ $ npm i
 $ npm start
 ```
 
-The visuals are adapted from the MaterialPRO React template: 
-https://www.wrappixel.com/templates/materialpro-react-admin-lite/
+The visuals are adapted from the 
+<a href="https://www.wrappixel.com/templates/materialpro-react-admin-lite/" target="_blank">MaterialPRO React template</a>.
+
 
 ## Backend
 To run the backend... Edwin write some directions here
@@ -35,7 +37,7 @@ $ python3
 For this project, Pycodestyle for checking the official Python style guide and Prettier for JavaScript/React code are being used
 for styling. 
 
-This styling is configured for the VSCode IDE using these guides:
-Prettier: https://medium.com/how-to-react/config-eslint-and-prettier-in-visual-studio-code-for-react-js-development-97bb2236b31a
+**To configure in VSCode:**
+- <a href="https://medium.com/how-to-react/config-eslint-and-prettier-in-visual-studio-code-for-react-js-development-97bb2236b31a" target="_blank">Prettier</a>
 
-Pycodestyle: https://code.visualstudio.com/docs/python/linting
+- <a href="https://code.visualstudio.com/docs/python/linting" target="_blank">Pycodestyle</a>
