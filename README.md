@@ -1,5 +1,5 @@
 # BobsList
-[![Build Status](http://img.shields.io/travis/nhausman/BobsList.svg?style=flat-square)](https://travis-ci.org/badges/BobsList)
+[![Build Status](http://img.shields.io/travis/nhausmna/BobsList.svg?style=flat-square)](https://travis-ci.org/nhausmna/BobsList)
 
 ## Table of contents
 * [General Info](#general-info)
