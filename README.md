@@ -14,10 +14,10 @@ database.
 ## Frontend
 To run, install dependencies then start on localhost:
 
-'''
+```
 $ npm i
 $ npm start
-'''
+```
 
 The visuals are adapted from the MaterialPRO React template: 
 https://www.wrappixel.com/templates/materialpro-react-admin-lite/
