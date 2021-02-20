@@ -1,10 +1,10 @@
 # BobsList
 
 ## Table of contents
-* [General Info] (#general-info)
-* [Frontend] (#frontend)
-* [Backend] (#backend)
-* [Code Styling] (#codestyling)
+* [General Info](#general-info)
+* [Frontend](#frontend)
+* [Backend](#backend)
+* [Code Styling](#codestyling)
 
 ## General Info
 This is a CSC 307 Project in developing a "selling stuff" application. We are
