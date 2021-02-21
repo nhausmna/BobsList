@@ -16,6 +16,7 @@ class NewListingForm extends Component{
    
     initialState = {
         title: '',
+        photo: '',
         price: '',
         city: '',
         category: '',
@@ -38,7 +39,7 @@ class NewListingForm extends Component{
     }
 
     render(){
-        const { title, price, city, category, description } = this.state;
+        const { title, price, photo, city, category, description } = this.state;
 
         return (
             <Card>
@@ -56,6 +57,17 @@ class NewListingForm extends Component{
                 name="title"
                 id="title"
                 value={title}
+                onChange={this.handleChange}
+                />
+            <p></p>
+            <p>
+            <label htmlFor="photo">Enter the link to a photo of your item: </label>
+            </p>
+            <input
+                type="text"
+                name="photo"
+                id="photo"
+                value={photo}
                 onChange={this.handleChange}
                 />
             <p></p>
