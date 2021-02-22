@@ -16,6 +16,8 @@ jobs:
       node_js:
       - "12" # Mentioned in the docs
       - "15" # Current version that Jaxon is running
+      install:
+      - npm install
       script:
       - node -e "console.log('Hello World!')"
 
