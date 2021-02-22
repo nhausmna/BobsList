@@ -28,7 +28,8 @@ The visuals are adapted from the
 To run the backend... Edwin write some directions here
 ```
 $ cd BobsList\ Backend/
-$ python3 
+$ python3
+$ Add flask how to!
 ```
 
 
