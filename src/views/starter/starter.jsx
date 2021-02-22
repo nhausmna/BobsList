@@ -30,8 +30,8 @@ import ItemCard from '../ui-components/itemCard';
 
 const Cards = props => {
     const cards = [
-        <ItemCard title="EXAMPLE PRODUCT" price="34" description="this will be a desc" image={img3} timeAgo="2 minutes ago" location="LA"/>,
-        <ItemCard title="EXAMPLE PRODUCT 2" price="3431" description="this will be a desc 2" image={img7} timeAgo="4 hours ago" location="SLO"/>
+        <ItemCard title="EXAMPLE PRODUCT" price="34" description="this will be a desc" image={img3} timeAgo="2 minutes ago" distance={3}/>,
+        <ItemCard title="EXAMPLE PRODUCT 2" price="3431" description="this will be a desc 2" image="https://i.imgur.com/4FPsvlg.jpeg" timeAgo="4 hours ago" distance={4}/>
     ]
 
     return (

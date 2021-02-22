@@ -24,7 +24,7 @@ const ItemCard = data => {
                                     Contact Seller
                   </Button>
                 <CardText></CardText>
-                <CardText>{data.timeAgo} in {data.location}</CardText>
+                <CardText>{data.timeAgo} {data.location} miles away</CardText>
             </CardBody>
         </Card>
     </Col>
