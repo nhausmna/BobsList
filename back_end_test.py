@@ -29,5 +29,6 @@ def test_get_listings():
             'price': '$25.00'
             }
         ]
-    }  
+    }
+    print(back_end.get_listings())  
     assert back_end.get_listings() == expected
