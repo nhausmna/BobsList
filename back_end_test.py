@@ -1,4 +1,5 @@
 import pytest
+import back_end
 
 def test_get_listings():
     expected = {
@@ -30,3 +31,18 @@ def test_get_listings():
         ]
     }   
     assert back_end.get_listings() == expected
+
+    def test_get_listings_name():
+    expected = {
+        "listings_list": [
+            {
+            "_id": "602cc42ae04d5011230f8848", 
+            "description": "edjeauhdeiuadeuadheuahdiehaduiehadueiaud", 
+            "distance": "5", 
+            "name": "Edwin", 
+            "p_name": "iPhone", 
+            "price": "$10.00"
+            }, 
+        ]
+    }   
+    assert back_end.get_listings("seller=Edwin") == expected
