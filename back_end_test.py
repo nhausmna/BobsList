@@ -45,4 +45,4 @@ def test_get_listings():
             }, 
         ]
     }   
-    assert back_end.get_listings("seller=Edwin") == expected
+    assert back_end.get_listings(query_string={'seller': 'Edwin'}) == expected
