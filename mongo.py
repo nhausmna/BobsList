@@ -29,8 +29,8 @@ class Model(dict):
             return resp
 
 class Listing(Model):
-    db_client = pymongo.MongoClient('localhost', 27017)
-    collection = db_client["listings"]["listings_list"]
+    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    collection = client['BobsListDB']['listings']
 
     def find_all(self):
         listings = list(self.collection.find())
@@ -49,3 +49,5 @@ class Listing(Model):
         for listing in listings:
             listing["_id"] = str(listing["_id"])
         return listings
+
+

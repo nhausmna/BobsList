@@ -6,6 +6,7 @@ import {
     CardTitle
 } from 'reactstrap';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import axios from 'axios';
 
 class NewListingForm extends Component{
 
@@ -14,12 +15,17 @@ class NewListingForm extends Component{
         this.state = this.initialState;
     }
    
-    initialState = {
+    initialState = {/*
         title: '',
         price: '',
         city: '',
         category: '',
-        description: '',
+        description: '',*/
+        name: '',
+        p_name: '',
+        price: '',
+        distance: '',
+        description: ''
       }
 
 
@@ -38,7 +44,7 @@ class NewListingForm extends Component{
     }
 
     render(){
-        const { title, price, city, category, description } = this.state;
+        const { name, p_name, price, distance, description } = this.state;
 
         return (
             <Card>
@@ -49,13 +55,24 @@ class NewListingForm extends Component{
             <CardBody>
         <form>
             <p>
-            <label htmlFor="title">Enter an item title: </label>
+            <label htmlFor="name">Enter your name: </label>
             </p>
             <input
                 type="text"
-                name="title"
-                id="title"
-                value={title}
+                name="name"
+                id="name"
+                value={name}
+                onChange={this.handleChange}
+                />
+            <p></p>
+            <p>
+            <label htmlFor="p_name">Enter an item title: </label>
+            </p>
+            <input
+                type="text"
+                name="p_name"
+                id="p_name"
+                value={p_name}
                 onChange={this.handleChange}
                 />
             <p></p>
@@ -70,25 +87,14 @@ class NewListingForm extends Component{
 
                 />
             <p></p>
-            <p>Enter a city:</p>
+            <p>Enter a distance:</p>
                  <input
                     type="text"
-                    name="city"
-                    id="city"
-                    value={city}
+                    name="distance"
+                    id="distance"
+                    value={distance}
                     onChange={this.handleChange}
                 />
-            <p></p>
-            <p>Select a category:</p>
-                <select category={this.state.category}>
-                    <option category="Appliances">Appliances</option>
-                    <option category="Clothing">Clothing</option>
-                    <option category="Custom">Custom</option>
-                    <option category="Electronics">Electronics</option>
-                    <option category="Furniture">Furniture</option>
-                    <option category="Vehicles">Vehicles</option>
-                    <option category="Other">Other</option>
-                </select>
             <p></p>
             <p>Enter an item description: </p>
                 <TextareaAutosize 
@@ -103,7 +109,7 @@ class NewListingForm extends Component{
         </form>
         <p></p>
             
-        <Button className="btn" color="primary" size="lg" onChange={this.handleSubmit} href="/" >
+        <Button className="btn" color="primary" size="lg" onClick={this.submitForm} href="/">
                     Submit
         </Button>
         <container> </container>
@@ -115,6 +121,33 @@ class NewListingForm extends Component{
 
         );
     }
+    
+    submitForm = () => {
+        console.log("made it to submitform")
+        this.handleSubmit(this.state)
+        this.setState(this.initialState)
+    }
+
+    handleSubmit = character => {
+        this.makePostCall(character).then(callResult => {
+          if (callResult.status === 201) {
+            this.setState({ characters: [...this.state.characters, callResult.data] });
+          }
+        });
+    }
+    
+    makePostCall(character) {
+      return axios.post('http://localhost:5000/listings', character)
+        .then(function (response) {
+          console.log(response);
+          return response;
+        })
+        .catch(function (error) {
+          console.log(error);
+          return false;
+        });
+    }
+    
 }
 
 export default NewListingForm;
