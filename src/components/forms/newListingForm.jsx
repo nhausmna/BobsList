@@ -109,7 +109,7 @@ class NewListingForm extends Component{
         </form>
         <p></p>
             
-        <Button className="btn" color="primary" size="lg" onClick={this.submitForm} href="/">
+        <Button className="btn" color="primary" size="lg" onClick={this.submitForm} /*href="/"*/>
                     Submit
         </Button>
         <container> </container>
@@ -123,17 +123,12 @@ class NewListingForm extends Component{
     }
     
     submitForm = () => {
-        console.log("made it to submitform")
         this.handleSubmit(this.state)
         this.setState(this.initialState)
     }
 
     handleSubmit = character => {
-        this.makePostCall(character).then(callResult => {
-          if (callResult.status === 201) {
-            this.setState({ characters: [...this.state.characters, callResult.data] });
-          }
-        });
+        this.makePostCall(character);
     }
     
     makePostCall(character) {

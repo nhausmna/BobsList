@@ -3,8 +3,9 @@ from flask import request
 from flask import jsonify
 import json
 from mongo import Listing
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 listings = {
    'listings_list': [ ]
