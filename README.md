@@ -27,9 +27,9 @@ The visuals are adapted from the
 ## Backend
 To run the backend... Edwin write some directions here
 ```
-$ cd BobsList\ Backend/
-$ python3
-$ Add flask how to!
+$ export FLASK_ENV="development"
+$ export FLASK_APP=back_end.py
+$ python -m flask run
 ```
 
 
