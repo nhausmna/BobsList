@@ -13,7 +13,6 @@ import {
 const ItemCard = data => {
     var string = "this\n\n\n\n\n is a multi\ line\ string"; 
     return(
-        <Col xs="12" md="4">
         <Card>
             <CardImg top width="100%" src={data.image} />
             <CardBody>
@@ -24,10 +23,9 @@ const ItemCard = data => {
                                     Contact Seller
                   </Button>
                 <CardText></CardText>
-                <CardText>{data.timeAgo} in {data.location}</CardText>
+                <CardText>{data.distance} miles away by {data.poster}</CardText>
             </CardBody>
         </Card>
-    </Col>
     )
 }
 

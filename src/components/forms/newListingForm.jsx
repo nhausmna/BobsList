@@ -15,14 +15,10 @@ class NewListingForm extends Component{
         this.state = this.initialState;
     }
    
-    initialState = {/*
-        title: '',
-        price: '',
-        city: '',
-        category: '',
-        description: '',*/
+    initialState = {
         name: '',
         p_name: '',
+        imageLink: '',
         price: '',
         distance: '',
         description: ''
@@ -44,7 +40,7 @@ class NewListingForm extends Component{
     }
 
     render(){
-        const { name, p_name, price, distance, description } = this.state;
+        const { name, p_name, imageLink, price, distance, description } = this.state;
 
         return (
             <Card>
@@ -73,6 +69,17 @@ class NewListingForm extends Component{
                 name="p_name"
                 id="p_name"
                 value={p_name}
+                onChange={this.handleChange}
+                />
+            <p></p>
+            <p>
+            <label htmlFor="imageLink">Enter your image link: </label>
+            </p>
+            <input
+                type="text"
+                name="imageLink"
+                id="imageLink"
+                value={imageLink}
                 onChange={this.handleChange}
                 />
             <p></p>
@@ -121,7 +128,7 @@ class NewListingForm extends Component{
 
         );
     }
-    
+
     submitForm = () => {
         this.handleSubmit(this.state)
         this.setState(this.initialState)
