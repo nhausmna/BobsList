@@ -49,3 +49,15 @@ class Listing(Model):
         for listing in listings:
             listing["_id"] = str(listing["_id"])
         return listings
+
+    def sort_by_distance(self):
+        listings = list(self.collection.find().sort([("distance", 1)]))
+        for listing in listings:
+            listing["_id"] = str(listing["_id"])
+        return listings
+
+    def sort_by_price(self):
+        listings = list(self.collection.find().sort([("price", 1)]))
+        for listing in listings:
+            listing["_id"] = str(listing["_id"])
+        return listings
