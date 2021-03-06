@@ -3,6 +3,7 @@ from flask import request
 from flask import jsonify
 import json
 from mongo import Listing
+from mongo import Credentials
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
@@ -14,6 +15,25 @@ listings = {
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+
+@app.route('/login', methods=['POST'])
+def login():
+    credentials = request.get_json()
+    username = credentials['username']
+    password = credentials['password']
+
+    verify_login = Credentials().verify_login(username, password)
+    if verify_login:
+        return 'True'
+    return 'False'
+
+@app.route('/register', methods=['POST'])
+def register():
+    credentialToAdd = request.get_json()
+    newCredential = Credentials(credentialToAdd)
+    newCredential.save()
+    resp = jsonify(newCredential), 201
+    return resp
 
 @app.route('/listings', methods=['GET', 'POST'])
 def get_listings():

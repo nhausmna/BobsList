@@ -29,7 +29,7 @@ class Model(dict):
             return resp
 
 class Listing(Model):
-    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://jaxon:FrenSVswsSANbbHHGmge@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
     collection = client['BobsListDB']['listings']
 
     def find_all(self):
@@ -50,4 +50,15 @@ class Listing(Model):
             listing["_id"] = str(listing["_id"])
         return listings
 
+class Credentials(Model):
+    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    collection = client['BobsListDB']['user_credentials']
 
+    def verify_login(self, username, password):
+        credentials = list(self.collection.find( {"username": username} ))
+        print(credentials)
+        for u in credentials: 
+            if str(password) == str(u["password"]):
+                return True   
+        return False
+ 
