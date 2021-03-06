@@ -92,7 +92,7 @@ class ContactForm extends Component{
         </form>
         <p></p>
 
-        <Button className="btn" color="primary" size="lg" onChange={this.handleSubmit} href="/" >
+        <Button className="btn" color="primary" size="lg" onClick={this.handleSubmit} /*href="/"*/ >
                     Submit
         </Button>
         <container> </container>
