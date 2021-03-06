@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Nav,
     NavItem,
@@ -6,7 +6,7 @@ import {
     Navbar,
     NavbarBrand,
     Collapse,
-    UncontrolledDropdown,
+    Dropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
@@ -35,6 +35,13 @@ const Header = () => {
     const toggleMenu = () => {
         document.getElementById('search').classList.toggle('show-search');
     }
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+    const resetStorage = () => {sessionStorage.clear()
+                            console.log('logged out...')
+}
 
 
     return (
@@ -122,7 +129,7 @@ const Header = () => {
                         {/*--------------------------------------------------------------------------------*/}
                         {/* Start Profile Dropdown                                                         */}
                         {/*--------------------------------------------------------------------------------*/}
-                        <UncontrolledDropdown nav inNavbar>
+                        <Dropdown nav inNavbar isOpen={dropdownOpen} toggle={toggle}> 
                             <DropdownToggle nav caret className="pro-pic">
                                 <img
                                     src={profilephoto}
@@ -144,11 +151,15 @@ const Header = () => {
                                 <DropdownItem className="border-bottom">
                                     <i className="ti-settings mr-1 ml-1" /> Account Settings
                   </DropdownItem>
-                                <DropdownItem href="/pages/login">
-                                    <i className="fa fa-power-off mr-1 ml-1" /> Logout
+                                <DropdownItem 
+                                    onClick={ resetStorage } >
+                                    <i className="fa fa-power-off mr-1 ml-1" 
+
+                                          /> Logout
+                                    
                   </DropdownItem>
                             </DropdownMenu>
-                        </UncontrolledDropdown>
+                        </Dropdown>
                         {/*--------------------------------------------------------------------------------*/}
                         {/* End Profile Dropdown                                                           */}
                         {/*--------------------------------------------------------------------------------*/}
