@@ -61,4 +61,3 @@ class Credentials(Model):
             if str(password) == str(u["password"]):
                 return True   
         return False
- 
