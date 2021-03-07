@@ -22,6 +22,7 @@ class Model(dict):
                 self._id = str(self._id)
                 return True
         return False
+    
     def remove(self):
         if self._id:
             resp = self.collection.remove({"_id": ObjectId(self._id)})
@@ -61,3 +62,25 @@ class Credentials(Model):
             if str(password) == str(u["password"]):
                 return True   
         return False
+
+class Messages(Model):
+    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    collection = client['BobsListDB']['messages']
+
+    def find_all_messages(self):
+        messages = list(self.collection.find())
+        for message in messages:
+            message["_id"] = str(message["_id"])
+        return messages
+    
+    def search_to_user(self, username):
+        messages = list(self.collection.find( {"to": username}))
+        for m in messages:
+            m["_id"] = str(m["_id"])
+        return messages
+
+    def search_from_user(self, username):
+        messages = list(self.collection.find( {"from": username}))
+        for m in messages:
+            m["_id"] = str(m["_id"])
+        return messages
