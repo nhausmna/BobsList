@@ -17,7 +17,7 @@ import NewListingForm from '../components/forms/newListingForm.jsx';
 import ContactForm from '../components/forms/contactForm.jsx';
 import LoginForm from '../components/forms/loginForm.jsx'
 import RegistrationForm from '../components/forms/registerUserForm.jsx'
-
+import Inbox from '../layouts/inbox.jsx'
 var ThemeRoutes = [
   {
     path: '/home',
@@ -36,6 +36,12 @@ var ThemeRoutes = [
     name: 'Contact Seller',
     icon: 'mdi mdi-comment-processing-outline',
     component: ContactForm
+  },
+  {
+    path: '/inbox',
+    name: 'Inbox',
+    icon: 'mdi mdi-comment-processing-outline',
+    component:Inbox
   },
   {
     path: '/login',
