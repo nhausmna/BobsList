@@ -2,8 +2,7 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 import json
-from mongo import Listing
-from mongo import Credentials
+from mongo import *
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
@@ -35,6 +34,34 @@ def register():
     resp = jsonify(newCredential), 201
     return resp
 
+@app.route('/inbox', methods=['GET'])
+def inbox():
+    search_from = request.args.get('from')
+    search_to = request.args.get('to')
+    messages = []
+    if search_from:
+        messages += Messages().search_from_user(search_from)
+    if search_to:
+        messages += Messages().search_to_user(search_to)
+    if not search_to and not search_from:
+        messages = Messages().find_all_messages()
+    return {'messages_list': messages}
+
+@app.route('/inbox/<id>', methods = ['DELETE'])
+def delete_message(id):
+        deleteMessage = Messages({"_id":id})
+        deleteMessage.remove()
+        resp = jsonify(deleteMessage), 201
+        return resp
+
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    messageData = request.get_json()
+    newMessage = Messages(messageData)
+    newMessage.save()
+    resp = jsonify(newMessage), 201
+    return resp
+
 @app.route('/listings', methods=['GET', 'POST'])
 def get_listings():
     if request.method == 'GET':
@@ -54,7 +81,7 @@ def get_listings():
         resp = jsonify(newListing), 201
         return resp
 
-@app.route('/listings/buy', methods=['DElETE'])
+@app.route('/listings/buy', methods=['DELETE'])
 def buy_listing():
     if request.method == 'DELETE':
         listing = listings({"_id": id})
