@@ -59,7 +59,8 @@ class Cards extends Component {
                 image={listing.imageLink}
                 timeAgo=""
                 distance={listing.distance}
-                poster={listing.name} />)
+                poster={listing.name} 
+                post_id={listing._id} />)
         }
         return cards
     }
