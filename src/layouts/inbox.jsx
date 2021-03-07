@@ -1,6 +1,7 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
-import MessageAlert from '../views/ui-components/messageAlert.jsx'
+import MessageReceivedAlert from '../views/ui-components/messageReceivedAlert.jsx'
+import MessageSentAlert from '../views/ui-components/messageSentAlert.jsx'
 import {
     Card,
     CardBody,
@@ -46,7 +47,7 @@ class Inbox extends Component{
         const alerts_from_array = []
 
         for (let m of messages_to){
-            alerts_to_array.push(<MessageAlert
+            alerts_to_array.push(<MessageReceivedAlert
                 post_title={m.post_title}
                 from={m.from}
                 message={m.message}
@@ -56,10 +57,10 @@ class Inbox extends Component{
                 item_id={m.item_id}
                 to={m.to}
                 >
-            </MessageAlert>)
+            </MessageReceivedAlert>)
         }
         for (let m of messages_from){
-            alerts_from_array.push(<MessageAlert
+            alerts_from_array.push(<MessageSentAlert
                 post_title={m.post_title}
                 from={m.from}
                 message={m.message}
@@ -69,7 +70,7 @@ class Inbox extends Component{
                 item_id={m.item_id}
                 to={m.to}
                 >
-            </MessageAlert>)
+            </MessageSentAlert>)
         }
 
         return(

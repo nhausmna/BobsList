@@ -6,7 +6,7 @@ import {
     Row
 } from 'reactstrap';
 
-const MessageAlert = data => {
+const MessageSentAlert = data => {
     const [visible, setVisible] = useState(true);
 
     const onDismiss = () => {
@@ -21,7 +21,7 @@ const MessageAlert = data => {
             isOpen={visible}
             toggle={onDismiss.bind(null)} >
 
-            <h3 className="alert-heading">{data.post_title} - {data.from} </h3>
+            <h3 className="alert-heading">{data.post_title} to @{data.to} </h3>
             <p> {data.message} </p>
 
             <hr />
@@ -48,4 +48,4 @@ const MessageAlert = data => {
     
 }
 
-export default MessageAlert;
+export default MessageSentAlert;
