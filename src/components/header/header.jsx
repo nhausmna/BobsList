@@ -36,12 +36,35 @@ const Header = () => {
         document.getElementById('search').classList.toggle('show-search');
     }
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [loginText, setLoginText] = useState("Login / Register");
+    const changeLoginText = () => {
+        if(sessionStorage.getItem('username')){
+            setLoginText(sessionStorage.getItem('username'))
+        } 
+        else{
+            setLoginText("Login / Register")
+        }                             
+    };
 
-    const toggle = () => setDropdownOpen(prevState => !prevState);
-    const resetStorage = () => {sessionStorage.clear()
-                            console.log('logged out...')
-}
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    
+
+    const toggle = () => {
+        setDropdownOpen(prevState => !prevState)
+        changeLoginText()};
+
+    const resetStorage = () => {
+        sessionStorage.clear()
+        console.log('logged out...');
+        changeLoginText();
+    }
+
+    const [listItemLink, setListItemLink] = useState("/#/login")
+    const isLoggedIn_ListItem = () => {
+        if (sessionStorage.getItem('username')){
+            setListItemLink('/#/new_listing')
+        }
+    }
 
 
     return (
@@ -110,7 +133,8 @@ const Header = () => {
                     <Nav className="ml-auto float-right" navbar>
                     <NavItem>
                             <a
-                                href="/#/new_listing"
+                                onClick={isLoggedIn_ListItem}
+                                href={listItemLink}
                                 className="btn btn-warning mr-2"
                                 style={{ marginTop: '20px' }}
                             >
@@ -139,18 +163,14 @@ const Header = () => {
                                 />
                             </DropdownToggle>
                             <DropdownMenu right className="user-dd">
-                                <DropdownItem>
-                                    <i className="ti-user mr-1 ml-1" /> My Account
+                                <DropdownItem className="border-bottom"
+                                    href='/#/login'>
+                                    <i className="ti-user mr-1 ml-1" /> {loginText}
                   </DropdownItem>
-                                <DropdownItem>
-                                    <i className="ti-wallet mr-1 ml-1" /> My Balance
-                  </DropdownItem>
-                                <DropdownItem className="border-bottom">
+                                <DropdownItem className="border-bottom"
+                                    href='/#/inbox'>
                                     <i className="ti-email mr-1 ml-1" /> Inbox
-                  </DropdownItem>
-                                <DropdownItem className="border-bottom">
-                                    <i className="ti-settings mr-1 ml-1" /> Account Settings
-                  </DropdownItem>
+                  </DropdownItem>      
                                 <DropdownItem 
                                     onClick={ resetStorage } >
                                     <i className="fa fa-power-off mr-1 ml-1" 
