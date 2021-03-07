@@ -51,12 +51,20 @@ const Header = () => {
 
     const toggle = () => {
         setDropdownOpen(prevState => !prevState)
-        changeLoginText()};
+        changeLoginText()
+        isLoggedIn_OpenInbox()};
 
     const resetStorage = () => {
         sessionStorage.clear()
         console.log('logged out...');
         changeLoginText();
+    }
+
+    const [openInbox, setOpenInbox] = useState("/#/login")
+    const isLoggedIn_OpenInbox = () => {
+        if (sessionStorage.getItem('username')){
+            setOpenInbox('/#/inbox')
+        }
     }
 
     const [listItemLink, setListItemLink] = useState("/#/login")
@@ -168,7 +176,8 @@ const Header = () => {
                                     <i className="ti-user mr-1 ml-1" /> {loginText}
                   </DropdownItem>
                                 <DropdownItem className="border-bottom"
-                                    href='/#/inbox'>
+                                
+                                    href={ openInbox }>
                                     <i className="ti-email mr-1 ml-1" /> Inbox
                   </DropdownItem>      
                                 <DropdownItem 
