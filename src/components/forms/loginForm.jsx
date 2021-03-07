@@ -67,6 +67,9 @@ class LoginForm extends Component{
                  
         </form>
         <p></p>
+        <a href="/#/register" class="text-decoration-none"> Need an account? Click here.</a>
+        <p></p>
+
 
         <Button className="btn" color="primary" size="lg" onClick={this.submitForm} /*href="/"*/ >
                     Submit
@@ -75,6 +78,8 @@ class LoginForm extends Component{
         <Button className="btn" color="secondary" size="lg" href= "/" >
                     Cancel
         </Button>
+        <p></p>
+        
             </CardBody>
             </Card>
 
