@@ -6,6 +6,7 @@ import {
     CardTitle
 } from 'reactstrap';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import axios from 'axios';
 
 class ContactForm extends Component{
 
@@ -15,10 +16,13 @@ class ContactForm extends Component{
     }
    
     initialState = {
-        name: '',
+        from: sessionStorage.getItem('username'),
+        to: localStorage.getItem('seller_name'),
         phonenumber: '',
         email: '',
         message: '',
+        item_id: localStorage.getItem('post_id'),
+        post_title: localStorage.getItem('post_title')
       }
 
 
@@ -47,17 +51,6 @@ class ContactForm extends Component{
             </CardTitle>
             <CardBody>
         <form>
-            <p>
-            <label htmlFor="name">Enter your name:</label>
-            </p>
-            <input
-                type="text"
-                name="name"
-                id="name"
-                value={name}
-                onChange={this.handleChange}
-                />
-            <p></p>
             <p>Enter your phone number: </p>
                  <input
                     placeholder="(123) 456-7890"
@@ -92,7 +85,7 @@ class ContactForm extends Component{
         </form>
         <p></p>
 
-        <Button className="btn" color="primary" size="lg" onClick={this.handleSubmit} /*href="/"*/ >
+        <Button className="btn" color="primary" size="lg" onClick={this.submitForm} /*href="/"*/ >
                     Submit
         </Button>
         <container> </container>
@@ -103,6 +96,26 @@ class ContactForm extends Component{
             </Card>
 
         );
+    }
+    submitForm = () => {
+        this.handleSubmit(this.state)
+        this.setState(this.initialState)
+    }
+
+    handleSubmit = message => {
+        this.makePostCall(message);
+    }
+    
+    makePostCall(message) {
+      return axios.post('http://localhost:5000/send_message', message)
+        .then(function (response) {
+          console.log(response);
+          return response;
+        })
+        .catch(function (error) {
+          console.log(error);
+          return false;
+        });
     }
 }
 
