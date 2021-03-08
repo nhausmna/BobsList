@@ -153,11 +153,19 @@ def test_sort_price():
             }
         ]
     }
-    #assert back_end.sort_listing(query_string={'sort_t': 'price'}) == expected
+    #assert back_end.sort_listing(query_string={'type': 'price'}) == expected
     # the above code fails, because all of our functions require connections to the database
     assert expected == expected
 
-#def test_add_listing():
-    #curl -X POST https://localhost:3000/listings
-     #   -H "Content-Type: application/json" 
-      #  -d "{\"distance\":{\"$numberLong\":\"8\"},\"imageLink\":\"https://i.pinimg.com/originals/38/d6/04/38d604baa084bd18baa9c744201fc4b4.jpg\",\"name\":\"Edwin\",\"price\":5,\"p_name\":\"thing\",\"description\":\"whats up\"}"
+def test_add_listing():
+    curl -X POST https://localhost:3000/listings
+        -H "Content-Type: application/json" 
+        -d "{\"distance\":{\"$numberLong\":\"8\"},\"imageLink\":\"https://i.pinimg.com/originals/38/d6/04/38d604baa084bd18baa9c744201fc4b4.jpg\",\"name\":\"Edwin\",\"price\":5,\"p_name\":\"thing\",\"description\":\"whats up\"}"
+    #need to find a way to find the count of number of objects in here
+
+def test_delete_listing():
+    curl -X DELETE https://localhost:3000/listings/buy
+        -H "Content-Type: application/json" 
+        -d "{\"_id\":{\"$oid\":\"6046699ab56497a90525b31c\"},\"distance\":{\"$numberLong\":\"43\"},\"imageLink\":\"https://images.idgesg.net/images/article/2019/05/cso_best_security_software_best_ideas_best_technology_lightbulb_on_horizon_of_circuit_board_landscape_with_abstract_digital_connective_technology_atmosphere_ideas_innovation_creativity_by_peshkov_gettyimages-965785212_3x2_2400x1600-100797318-large.jpg\",\"name\":\"nick\",\"price\":5223,\"p_name\":\"Bulb\",\"description\":\"differ\"}"
+        #need to find a way to find the count of number of objects in here
+        
