@@ -41,7 +41,7 @@ class ContactForm extends Component{
     }
 
     render(){
-        const { name, phonenumber, email, message } = this.state;
+        const { phonenumber, email, message } = this.state;
 
         return (
             <Card>

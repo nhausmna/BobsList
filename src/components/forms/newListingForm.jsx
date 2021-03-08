@@ -40,7 +40,7 @@ class NewListingForm extends Component{
     }
 
     render(){
-        const { name, p_name, imageLink, price, distance, description } = this.state;
+        const { p_name, imageLink, price, distance, description } = this.state;
 
         return (
             <Card>

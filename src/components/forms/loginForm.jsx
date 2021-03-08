@@ -97,7 +97,7 @@ class LoginForm extends Component{
     makePostCall(user_credentials) {
         return axios.post('http://localhost:5000/login', user_credentials)
           .then(function (response) {
-              if (response['data'] == 'True'){
+              if (response['data'] === 'True'){
                 sessionStorage.setItem('username', user_credentials['username']);
               }
             console.log(response['data']);
