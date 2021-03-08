@@ -30,9 +30,22 @@ def get_listings():
     elif request.method == 'POST':
         listingToAdd = request.get_json()
         newListing = Listing(listingToAdd)
+        newListing['price'] = float(newListing['price'])
         newListing.save()
         resp = jsonify(newListing), 201
         return resp
+
+@app.route('/listings/sort', methods=['GET'])
+def sort_listing():
+        if request.method == 'GET':
+            sort_t = request.args.get('type')
+            if sort_t == 'distance':
+                listings = Listing().sort_by_distance()
+            elif sort_t == 'price':
+                listings = Listing().sort_by_price()
+            else:
+                listings = Listing().find_all()
+            return {'listings_list': listings}
 
 @app.route('/listings/buy', methods=['DElETE'])
 def buy_listing():
