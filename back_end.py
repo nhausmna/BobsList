@@ -70,7 +70,7 @@ def get_listings():
         seller = request.args.get('seller')
         if distance:
             listings = Listing().find_by_distance(int(distance))
-        if price:
+        elif price:
             listings = Listing().find_by_price(int(price))
         elif seller:
             listings = Listing().find_by_name(seller)
