@@ -78,6 +78,7 @@ def get_listings():
         listingToAdd = request.get_json()
         newListing = Listing(listingToAdd)
         newListing['price'] = float(newListing['price'])
+        newListing['distance'] = int(newListing['distance'])
         newListing.save()
         resp = jsonify(newListing), 201
         return resp
