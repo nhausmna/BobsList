@@ -66,9 +66,12 @@ def send_message():
 def get_listings():
     if request.method == 'GET':
         distance = request.args.get('distance')
+        price = request.args.get('price')
         seller = request.args.get('seller')
         if distance:
-            listings = Listing().find_by_distance(distance)
+            listings = Listing().find_by_distance(int(distance))
+        if price:
+            listings = Listing().find_by_price(int(price))
         elif seller:
             listings = Listing().find_by_name(seller)
         else:

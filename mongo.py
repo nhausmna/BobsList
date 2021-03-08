@@ -30,7 +30,7 @@ class Model(dict):
             return resp
 
 class Listing(Model):
-    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://<username>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
     collection = client['BobsListDB']['listings']
 
     def find_all(self):
@@ -50,7 +50,13 @@ class Listing(Model):
         for listing in listings:
             listing["_id"] = str(listing["_id"])
         return listings
-        
+
+    def find_by_price(self, price):
+        listings = list(self.collection.find( {"price": {"$lte": price}}))
+        for listing in listings:
+            listing["_id"] = str(listing["_id"])
+        return listings
+
     def sort_by_distance(self):
         listings = list(self.collection.find().sort([("distance", 1)]))
         for listing in listings:
