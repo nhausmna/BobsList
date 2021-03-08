@@ -19,5 +19,5 @@ jobs:
       install:
       - npm install
       script:
-      - node -e "console.log('Hello World!')"
+      - npm start
 
