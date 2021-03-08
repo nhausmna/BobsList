@@ -14,6 +14,14 @@ database. Users of this web application are able to post items for sale with a t
 price, location, and photo and view items for sale posted by other users. Users are also able to 
 send messages to the seller of an item and view messages sent to them from prospective buyers. 
 
+## UI Prototype
+- <a href="https://www.figma.com/file/GQyePeTt7Uxjw3iHWr7PDA/Bob's-List?node-id=106%3A36&frame-preset-name=Desktop" target="_blank">Prototype</a>
+
+## Use Case and Class Diagrams
+- <a href="https://github.com/nhausmna/BobsList/wiki/Use-Case-Diagram" target="_blank">Use Cases</a>
+
+- <a href="https://github.com/nhausmna/BobsList/wiki/Class-Diagram" target="_blank">Class Diagram</a>
+
 ## Frontend
 To run, install dependencies then start on localhost:
 
