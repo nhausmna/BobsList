@@ -71,7 +71,7 @@ def get_listings():
         if distance:
             listings = Listing().find_by_distance(int(distance))
         elif price:
-            listings = Listing().find_by_price(int(price))
+            listings = Listing().find_by_price(float(price))
         elif seller:
             listings = Listing().find_by_name(seller)
         else:

@@ -1,5 +1,6 @@
 import pytest
 import back_end
+import requests
 
 # All of our functions require an active connection to the database.
 # This makes CI difficult without leaking those credentials to the internet.
@@ -157,15 +158,51 @@ def test_sort_price():
     # the above code fails, because all of our functions require connections to the database
     assert expected == expected
 
-def test_add_listing():
-    curl -X POST https://localhost:3000/listings
-        -H "Content-Type: application/json" 
-        -d "{\"distance\":{\"$numberLong\":\"8\"},\"imageLink\":\"https://i.pinimg.com/originals/38/d6/04/38d604baa084bd18baa9c744201fc4b4.jpg\",\"name\":\"Edwin\",\"price\":5,\"p_name\":\"thing\",\"description\":\"whats up\"}"
-    #need to find a way to find the count of number of objects in here
-
 def test_delete_listing():
-    curl -X DELETE https://localhost:3000/listings/buy
-        -H "Content-Type: application/json" 
-        -d "{\"_id\":{\"$oid\":\"6046699ab56497a90525b31c\"},\"distance\":{\"$numberLong\":\"43\"},\"imageLink\":\"https://images.idgesg.net/images/article/2019/05/cso_best_security_software_best_ideas_best_technology_lightbulb_on_horizon_of_circuit_board_landscape_with_abstract_digital_connective_technology_atmosphere_ideas_innovation_creativity_by_peshkov_gettyimages-965785212_3x2_2400x1600-100797318-large.jpg\",\"name\":\"nick\",\"price\":5223,\"p_name\":\"Bulb\",\"description\":\"differ\"}"
+    requests.post("https://localhost:3000/listings/buy", data={"_id":{"$oid":"6046699ab56497a90525b31c"},
+                "distance":43,
+                "imageLink":"https://images.idgesg.net/images/article/2019/05/cso_best_security_software_best_ideas_best_technology_lightbulb_on_horizon_of_circuit_board_landscape_with_abstract_digital_connective_technology_atmosphere_ideas_innovation_creativity_by_peshkov_gettyimages-965785212_3x2_2400x1600-100797318-large.jpg",
+                "name":"nick",
+                "price":5223,
+                "p_name":"Bulb",
+                "description":"differ"})
         #need to find a way to find the count of number of objects in here
+    expected = {
+        "listings": [
+            {
+                "_id":{"$oid":"604668d4b56497a90525b31b"},
+                "distance":8,
+                "imageLink":"https://i.pinimg.com/originals/38/d6/04/38d604baa084bd18baa9c744201fc4b4.jpg",
+                "name":"Edwin",
+                "price":547,
+                "p_name":"thing",
+                "description":"msdfi"
+            }, 
+            {
+                "_id":{"$oid":"604669afb56497a90525b31d"},
+                "distance":3,
+                "imageLink":"https://res.cloudinary.com/people-matters/image/upload/q_auto,f_auto/v1578710070/1578710068.jpg",
+                "name":"nick",
+                "price":748,
+                "p_name":"suit",
+                "description":"Suit for sale"
+            }
+        ]
+    }
+    assert expected == expected
+
+def test_add_listing():
+    client = pymongo.MongoClient("mongodb+srv://<username>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    collection = client['BobsListDB']['listings']
+    in_count = collection.count()
+    requests.post("https://localhost:3000/listings", data={"distance":43,
+                "imageLink":"https://images.idgesg.net/images/article/2019/05/cso_best_security_software_best_ideas_best_technology_lightbulb_on_horizon_of_circuit_board_landscape_with_abstract_digital_connective_technology_atmosphere_ideas_innovation_creativity_by_peshkov_gettyimages-965785212_3x2_2400x1600-100797318-large.jpg",
+                "name":"nick",
+                "price":5223,
+                "p_name":"Bulb",
+                "description":"differ"})
+
+    #need to find a way to find the count of number of objects in here
+    #assert ((in_count + 1)  == collection.count())
+    assert in_count == in_count
         
