@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Button,
     Row,
     Col
 } from 'reactstrap';
@@ -10,9 +11,10 @@ import axios from 'axios';
 
 class Cards extends Component {
     state = {
-        listings: []
+        listings: [],
+        distance: 0,
+        price: 0
     }
-
 
     componentDidMount() {
         axios.get('http://localhost:5000/listings')
@@ -42,9 +44,42 @@ class Cards extends Component {
         return cards
     }
 
+    submitForm = () =>{
+        const { listings, price, distance } = this.state;
+        if (price !== 0) {
+            axios.get(`http://localhost:5000/listings?price=${price}`)
+            .then(res => {
+            const listings = res.data.listings_list;
+            this.setState({ listings });
+            })
+            .catch(function (error) {
+            //Not handling the error. Just logging into the console.
+            console.log(error);
+            });
+        }
+        if (distance !== 0) {
+            axios.get(`http://localhost:5000/listings?distance=${distance}`)
+            .then(res => {
+            const listings = res.data.listings_list;
+            this.setState({ listings });
+            })
+            .catch(function (error) {
+            //Not handling the error. Just logging into the console.
+            console.log(error);
+            });
+        }
+    }
+
+    handleChange = (event) => {
+        const { name, value } = event.target
+    
+        this.setState({
+        [name]: value,
+        })
+    }
+
     render() {
-        console.log(this.state)
-        const { listings } = this.state
+        const { listings, price, distance } = this.state;
 
         var colNum = 0;
 
@@ -76,9 +111,46 @@ class Cards extends Component {
         const cards3 = this.makeCardArray(col3)
         const cards4 = this.makeCardArray(col4)
 
+
         return (
             <div>
                 <h5 className="mb-3">Listings</h5>
+
+                <form>
+            
+                <td>Enter a max price: </td>
+                 <input
+                    placeholder="$"
+                    type="text"
+                    name="price"
+                    id="price"
+                    value={price}
+                    onChange={this.handleChange}
+
+                />
+                 <p></p>
+                <Button className="btn" color="primary" size="lg" onClick={this.submitForm}>
+                            Update
+                </Button>
+                <p></p>
+            <td>Enter a max distance (miles):</td>
+                 <input
+                    type="text"
+                    name="distance"
+                    id="distance"
+                    value={distance}
+                    onChange={this.handleChange}
+                />
+                 <p></p>
+                <Button className="btn" color="primary" size="lg" onClick={this.submitForm}>
+                            Update
+                </Button>
+            <p></p>
+        </form>
+        <p></p>
+        <container> </container>
+        <p></p>
+
                 <Row>
                     <Col xs="3">
                         {cards1}
