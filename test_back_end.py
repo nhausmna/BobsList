@@ -8,28 +8,31 @@ def test_get_listings():
     expected = {
         "listings_list": [
             {
-            "_id": "602cc42ae04d5011230f8848", 
-            "description": "edjeauhdeiuadeuadheuahdiehaduiehadueiaud", 
-            "distance": "5", 
-            "name": "Edwin", 
-            "p_name": "iPhone", 
-            "price": "$10.00"
+                "_id":{"$oid":"604668d4b56497a90525b31b"},
+                "distance":8,
+                "imageLink":"https://i.pinimg.com/originals/38/d6/04/38d604baa084bd18baa9c744201fc4b4.jpg",
+                "name":"Edwin",
+                "price":547,
+                "p_name":"thing",
+                "description":"msdfi"
             }, 
             {
-            "_id": "602d7ffbe04d5011230f8849", 
-            "description": "edjeauhdeiuadeuadheuahdiehaduiehadueiaud", 
-            "distance": "6", 
-            "name": "Jaxon", 
-            "p_name": "TV", 
-            "price": "$100.00"
+                "_id":{"$oid":"6046699ab56497a90525b31c"},
+                "distance":43,
+                "imageLink":"https://images.idgesg.net/images/article/2019/05/cso_best_security_software_best_ideas_best_technology_lightbulb_on_horizon_of_circuit_board_landscape_with_abstract_digital_connective_technology_atmosphere_ideas_innovation_creativity_by_peshkov_gettyimages-965785212_3x2_2400x1600-100797318-large.jpg",
+                "name":"nick",
+                "price":5223,
+                "p_name":"Bulb",
+                "description":"differ"
             }, 
             {
-            "_id": "602d805fe04d5011230f884a", 
-            "description": "edjeauhdeiuadeuadheuahdiehaduiehadueiaud", 
-            "distance": "3", 
-            "name": "Nick", 
-            "p_name": "Shoes", 
-            "price": "$25.00"
+                "_id":{"$oid":"604669afb56497a90525b31d"},
+                "distance":3,
+                "imageLink":"https://res.cloudinary.com/people-matters/image/upload/q_auto,f_auto/v1578710070/1578710068.jpg",
+                "name":"nick",
+                "price":748,
+                "p_name":"suit",
+                "description":"Suit for sale"
             }
         ]
     }   
