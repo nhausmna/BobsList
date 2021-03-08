@@ -12,7 +12,7 @@ import RegistrationForm from '../components/forms/registerUserForm.jsx'
 import Inbox from '../layouts/inbox.jsx'
 var ThemeRoutes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Listings',
     icon: 'mdi mdi-apps',
     component: FirstDashboard
