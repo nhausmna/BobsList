@@ -28,6 +28,18 @@ var ThemeRoutes = [
     name: 'Register',
     icon: 'mdi mdi-credit-card-multiple',
     component: RegistrationForm
+  },
+  {
+    path: '/inbox',
+    component:Inbox
+  },
+  {
+    path: '/contact_seller',
+    component: ContactForm
+  },
+  {
+    path: '/new_listing',
+    component: NewListingForm
   }
 ];
 export default ThemeRoutes;
