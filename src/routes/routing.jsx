@@ -18,24 +18,6 @@ var ThemeRoutes = [
     component: FirstDashboard
   },
   {
-    path: '/new_listing',
-    name: 'New Listing',
-    icon: 'mdi mdi-pencil-circle',
-    component: NewListingForm
-  },
-  {
-    path: '/contact_seller',
-    name: 'Contact Seller',
-    icon: 'mdi mdi-comment-processing-outline',
-    component: ContactForm
-  },
-  {
-    path: '/inbox',
-    name: 'Inbox',
-    icon: 'mdi mdi-comment-processing-outline',
-    component:Inbox
-  },
-  {
     path: '/login',
     name: 'Login',
     icon: 'mdi mdi-image-filter-vintage',
