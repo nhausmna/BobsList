@@ -32,7 +32,7 @@ def test_get_listings():
     }   
     assert back_end.get_listings() == expected
 
-    def test_get_listings_name():
+def test_get_listings_name():
     expected = {
         "listings_list": [
             {
