@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Nav,
     NavItem,
@@ -6,7 +6,7 @@ import {
     Navbar,
     NavbarBrand,
     Collapse,
-    UncontrolledDropdown,
+    Dropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
@@ -34,6 +34,44 @@ const Header = () => {
     /*--------------------------------------------------------------------------------*/
     const toggleMenu = () => {
         document.getElementById('search').classList.toggle('show-search');
+    }
+
+    const [loginText, setLoginText] = useState("Login / Register");
+    const changeLoginText = () => {
+        if(sessionStorage.getItem('username')){
+            setLoginText(sessionStorage.getItem('username'))
+        } 
+        else{
+            setLoginText("Login / Register")
+        }                             
+    };
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    
+
+    const toggle = () => {
+        setDropdownOpen(prevState => !prevState)
+        changeLoginText()
+        isLoggedIn_OpenInbox()};
+
+    const resetStorage = () => {
+        sessionStorage.clear()
+        console.log('logged out...');
+        changeLoginText();
+    }
+
+    const [openInbox, setOpenInbox] = useState("/#/login")
+    const isLoggedIn_OpenInbox = () => {
+        if (sessionStorage.getItem('username')){
+            setOpenInbox('/#/inbox')
+        }
+    }
+
+    const [listItemLink, setListItemLink] = useState("/#/login")
+    const isLoggedIn_ListItem = () => {
+        if (sessionStorage.getItem('username')){
+            setListItemLink('/#/new_listing')
+        }
     }
 
 
@@ -103,7 +141,8 @@ const Header = () => {
                     <Nav className="ml-auto float-right" navbar>
                     <NavItem>
                             <a
-                                href="/#/new_listing"
+                                onClick={isLoggedIn_ListItem}
+                                href={listItemLink}
                                 className="btn btn-warning mr-2"
                                 style={{ marginTop: '20px' }}
                             >
@@ -122,7 +161,7 @@ const Header = () => {
                         {/*--------------------------------------------------------------------------------*/}
                         {/* Start Profile Dropdown                                                         */}
                         {/*--------------------------------------------------------------------------------*/}
-                        <UncontrolledDropdown nav inNavbar>
+                        <Dropdown nav inNavbar isOpen={dropdownOpen} toggle={toggle}> 
                             <DropdownToggle nav caret className="pro-pic">
                                 <img
                                     src={profilephoto}
@@ -132,23 +171,24 @@ const Header = () => {
                                 />
                             </DropdownToggle>
                             <DropdownMenu right className="user-dd">
-                                <DropdownItem>
-                                    <i className="ti-user mr-1 ml-1" /> My Account
+                                <DropdownItem className="border-bottom"
+                                    href='/#/login'>
+                                    <i className="ti-user mr-1 ml-1" /> {loginText}
                   </DropdownItem>
-                                <DropdownItem>
-                                    <i className="ti-wallet mr-1 ml-1" /> My Balance
-                  </DropdownItem>
-                                <DropdownItem className="border-bottom">
+                                <DropdownItem className="border-bottom"
+                                
+                                    href={ openInbox }>
                                     <i className="ti-email mr-1 ml-1" /> Inbox
-                  </DropdownItem>
-                                <DropdownItem className="border-bottom">
-                                    <i className="ti-settings mr-1 ml-1" /> Account Settings
-                  </DropdownItem>
-                                <DropdownItem href="/pages/login">
-                                    <i className="fa fa-power-off mr-1 ml-1" /> Logout
+                  </DropdownItem>      
+                                <DropdownItem 
+                                    onClick={ resetStorage } >
+                                    <i className="fa fa-power-off mr-1 ml-1" 
+
+                                          /> Logout
+                                    
                   </DropdownItem>
                             </DropdownMenu>
-                        </UncontrolledDropdown>
+                        </Dropdown>
                         {/*--------------------------------------------------------------------------------*/}
                         {/* End Profile Dropdown                                                           */}
                         {/*--------------------------------------------------------------------------------*/}

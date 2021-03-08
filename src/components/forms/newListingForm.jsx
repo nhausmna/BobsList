@@ -16,7 +16,7 @@ class NewListingForm extends Component{
     }
    
     initialState = {
-        name: '',
+        name: sessionStorage.getItem('username'),
         p_name: '',
         imageLink: '',
         price: '',
@@ -40,7 +40,7 @@ class NewListingForm extends Component{
     }
 
     render(){
-        const { name, p_name, imageLink, price, distance, description } = this.state;
+        const { p_name, imageLink, price, distance, description } = this.state;
 
         return (
             <Card>
@@ -50,17 +50,6 @@ class NewListingForm extends Component{
             </CardTitle>
             <CardBody>
         <form>
-            <p>
-            <label htmlFor="name">Enter your name: </label>
-            </p>
-            <input
-                type="text"
-                name="name"
-                id="name"
-                value={name}
-                onChange={this.handleChange}
-                />
-            <p></p>
             <p>
             <label htmlFor="p_name">Enter an item title: </label>
             </p>

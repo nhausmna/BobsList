@@ -8,9 +8,11 @@
 * [Code Styling](#code-styling)
 
 ## General Info
-This is a CSC 307 Project in developing a "selling stuff" application. We are
-using React for the frontend, Flask for the backend, and MongoDB for the 
-database.
+This is a Cal Poly CSC 307 group project for a "selling stuff" web application. We are
+using React for the frontend, Flask for the backend, and MongoDB Atlas for the 
+database. Users of this web application are able to post items for sale with a title, description,
+price, location, and photo and view items for sale posted by other users. Users are also able to 
+send messages to the seller of an item and view messages sent to them from prospective buyers. 
 
 ## Frontend
 To run, install dependencies then start on localhost:

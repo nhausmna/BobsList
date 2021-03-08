@@ -15,7 +15,9 @@ import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
 import NewListingForm from '../components/forms/newListingForm.jsx';
 import ContactForm from '../components/forms/contactForm.jsx';
-
+import LoginForm from '../components/forms/loginForm.jsx'
+import RegistrationForm from '../components/forms/registerUserForm.jsx'
+import Inbox from '../layouts/inbox.jsx'
 var ThemeRoutes = [
   {
     path: '/home',
@@ -34,6 +36,24 @@ var ThemeRoutes = [
     name: 'Contact Seller',
     icon: 'mdi mdi-comment-processing-outline',
     component: ContactForm
+  },
+  {
+    path: '/inbox',
+    name: 'Inbox',
+    icon: 'mdi mdi-comment-processing-outline',
+    component:Inbox
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    icon: 'mdi mdi-image-filter-vintage',
+    component: LoginForm
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    icon: 'mdi mdi-credit-card-multiple',
+    component: RegistrationForm
   },
   {
     path: '/ui-components/alert',
