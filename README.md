@@ -3,6 +3,8 @@
 
 ## Table of contents
 * [General Info](#general-info)
+* [UI Prototype](#ui-prototype)
+* [Use Case and Class Diagrams](#use-case-and-class-diagrams)
 * [Frontend](#frontend)
 * [Backend](#backend)
 * [Code Styling](#code-styling)
