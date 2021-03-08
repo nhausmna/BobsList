@@ -70,7 +70,7 @@ class Listing(Model):
         return listings
 
 class Credentials(Model):
-    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://USER:PASSWORD@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
     collection = client['BobsListDB']['user_credentials']
 
     def verify_login(self, username, password):
@@ -82,7 +82,7 @@ class Credentials(Model):
         return False
 
 class Messages(Model):
-    client = pymongo.MongoClient("mongodb+srv://<user>:<password>@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://USER:PASSWORD@cluster0.sm94a.mongodb.net/BobsListDB?retryWrites=true&w=majority")
     collection = client['BobsListDB']['messages']
 
     def find_all_messages(self):
