@@ -44,7 +44,6 @@ class Cards extends Component {
   }
 
   sortDistance = () => {
-    const { listings, price, distance } = this.state;
     axios
       .get(`http://localhost:5000/listings/sort?type=distance`)
       .then((res) => {
@@ -58,7 +57,6 @@ class Cards extends Component {
   };
 
   sortPrice = () => {
-    const { listings, price, distance } = this.state;
     axios
       .get(`http://localhost:5000/listings/sort?type=price`)
       .then((res) => {
@@ -72,8 +70,8 @@ class Cards extends Component {
   };
 
   submitForm = () => {
-    const { listings, price, distance } = this.state;
-    if (price !== 0) {
+    const { price, distance } = this.state;
+    if (parseInt(price) !== 0) {
       axios
         .get(`http://localhost:5000/listings?price=${price}`)
         .then((res) => {
@@ -84,10 +82,20 @@ class Cards extends Component {
           //Not handling the error. Just logging into the console.
           console.log(error);
         });
-    }
-    if (distance !== 0) {
+    } else if (parseInt(distance) !== 0) {
       axios
         .get(`http://localhost:5000/listings?distance=${distance}`)
+        .then((res) => {
+          const listings = res.data.listings_list;
+          this.setState({ listings });
+        })
+        .catch(function (error) {
+          //Not handling the error. Just logging into the console.
+          console.log(error);
+        });
+    } else {
+      axios
+        .get("http://localhost:5000/listings")
         .then((res) => {
           const listings = res.data.listings_list;
           this.setState({ listings });
