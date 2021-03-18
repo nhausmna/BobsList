@@ -1,6 +1,5 @@
 import pytest
 import back_end
-import requests
 
 # All of our functions require an active connection to the database.
 # This makes CI difficult without leaking those credentials to the internet.
@@ -62,4 +61,3 @@ def test_sort_price():
     # the above code fails, because all of our functions require connections to the database
     #assert expected == expected
 
-    
